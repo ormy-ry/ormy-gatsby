@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
@@ -6,6 +7,7 @@ import Nav from "./Nav";
 import "../styles/index.css";
 import Footer from "./Footer";
 import NavModal from "./NavModal";
+import favicon from "../images/or.jpg";
 
 class Layout extends Component {
     constructor(props) {
@@ -34,6 +36,7 @@ class Layout extends Component {
                 `}
                 render={data => (
                     <>
+                        <Helmet link={[{ rel: "icon", type: "image/png", sizes: "32x32", href: `${favicon}` }]} />
                         <Nav handleModal={this.handleModal} siteTitle={data.site.siteMetadata.title} />
                         <div id="main-container">
                             <main>{this.props.children}</main>
