@@ -7,7 +7,7 @@ import Nav from "./Nav";
 import "../styles/index.css";
 import Footer from "./Footer";
 import NavModal from "./NavModal";
-import favicon from "../images/or.jpg";
+import icon32 from "../images/icon32.jpg";
 
 class Layout extends Component {
     constructor(props) {
@@ -36,7 +36,7 @@ class Layout extends Component {
                 `}
                 render={data => (
                     <>
-                        <Helmet link={[{ rel: "icon", type: "image/png", sizes: "32x32", href: `${favicon}` }]} />
+                        <Helmet link={[{ rel: "icon", type: "image/png", sizes: "32x32", href: `${icon32}` }]} />
                         <Nav handleModal={this.handleModal} siteTitle={data.site.siteMetadata.title} />
                         <div id="main-container">
                             <main>{this.props.children}</main>
