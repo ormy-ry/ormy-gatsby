@@ -1,0 +1,46 @@
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+@import "./components.pcss";
+@import "./grids.pcss";
+
+body,
+html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#main-container {
+    min-height: calc(100vh - 4rem);
+    position: relative;
+    margin-top: 4rem;
+    padding-bottom: 25rem;
+}
+
+th {
+    padding: 0.5rem 0;
+    @apply text-black font-bold text-left;
+}
+
+td {
+    padding: 1rem 0;
+
+    @apply text-grey-darkest;
+}
+
+tr {
+    border-bottom: 2px solid;
+    @apply border-grey-light;
+}
+
+thead {
+    padding: 1rem 0;
+    border-bottom: 2px solid;
+    @apply border-grey-light;
+}
+
+.tr-hover:hover {
+    cursor: pointer;
+    @apply bg-grey-lighter;
+}
