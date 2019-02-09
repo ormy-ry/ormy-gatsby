@@ -41,8 +41,8 @@ export default () => (
         render={data => {
             return (
                 <div className="footer flex row items-end justify-between">
-                    <div>{}</div>
-                    <div className="flex row h-full items-center">
+                    <div style={{ flexBasis: "0", flexGrow: "1" }}>{}</div>
+                    <div style={{ flexBasis: "0", flexGrow: "3" }} className="flex row h-full justify-around items-center">
                         {data.allPrismicSponsor
                             ? data.allPrismicSponsor.edges.map(edge => (
                                   <div key={edge.node.id} className="my-4 mx-16" style={{ width: "20rem", maxHeight: "100%" }}>
@@ -56,7 +56,10 @@ export default () => (
                               ))
                             : null}
                     </div>
-                    <div className="px-4 py-2 text-grey-light">
+                    <div
+                        style={{ flexBasis: "0", flexGrow: "1" }}
+                        className="px-4 py-2 text-grey-light flex flex-col h-full items-end justify-end"
+                    >
                         {data.prismicCredits
                             ? data.prismicCredits.data.fields.map(field => <p key={field.credit}>{field.credit}</p>)
                             : null}
