@@ -45,10 +45,19 @@ export default () => (
                     <div style={{ flexBasis: "0", flexGrow: "3" }} className="flex row h-full justify-around items-center">
                         {data.allPrismicSponsor
                             ? data.allPrismicSponsor.edges.map(edge => (
-                                  <div key={edge.node.id} className="my-4 mx-16" style={{ width: "20rem", maxHeight: "100%" }}>
+                                  <div
+                                      key={edge.node.id}
+                                      className="my-4 mx-16"
+                                      style={{
+                                          width: "20rem",
+                                          maxHeight: "100%"
+                                      }}
+                                  >
                                       <a href={edge.node.data.link.url}>
                                           <Img
-                                              style={{ filter: "brightness(0) invert(1)" }}
+                                              style={{
+                                                  filter: "brightness(0) invert(1)"
+                                              }}
                                               fluid={edge.node.data.logo.localFile.childImageSharp.fluid}
                                           />
                                       </a>
