@@ -18,13 +18,17 @@ export default ({ data }) => {
                             </div>
                             <div className="card-footer" />
                         </div>
-                        <EventsList style={{ gridArea: "events" }} />
-                        <div className="card" style={{ gridArea: "contact" }}>
-                            <div className="card-title">{data.prismicContact.data.title.text}</div>
-                            <div className="card-body">
-                                <div dangerouslySetInnerHTML={{ __html: data.prismicContact.data.body.html }} />
+                        <div>
+                            <EventsList style={{ gridArea: "events" }} />
+                        </div>
+                        <div>
+                            <div className="card" style={{ gridArea: "contact" }}>
+                                <div className="card-title">{data.prismicContact.data.title.text}</div>
+                                <div className="card-body">
+                                    <div dangerouslySetInnerHTML={{ __html: data.prismicContact.data.body.html }} />
+                                </div>
+                                <div className="card-footer" />
                             </div>
-                            <div className="card-footer" />
                         </div>
                     </div>
                 </div>
