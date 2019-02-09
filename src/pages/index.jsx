@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import HeroHeader from "../components/HeroHeader";
 import EventsList from "../components/EventsList";
+import { graphql } from "gatsby";
 
 export default ({ data }) => {
     return (
@@ -99,7 +100,7 @@ export const query = graphql`
             photo {
                 localFile {
                     childImageSharp {
-                        fluid(maxWidth: 800, quality: 90) {
+                        fluid(maxWidth: 1000, quality: 90) {
                             ...GatsbyImageSharpFluid
                         }
                     }

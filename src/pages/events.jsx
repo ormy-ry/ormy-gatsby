@@ -17,7 +17,7 @@ export default ({ data }) => {
     return (
         <Layout>
             <div className="container mx-auto px-4 pb-4 py-16">
-                <div className="grid-events">
+                <div className="grid-col">
                     {newEvents ? newEvents : null}
                     {data.Old.edges.length ? (
                         <>

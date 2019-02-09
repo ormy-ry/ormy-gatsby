@@ -14,7 +14,12 @@ export default ({ data }) => {
                         <Card title={data.prismicMembership.data.title.text} body={data.prismicMembership.data.body.html} />
                     </div>
                     <div style={{ gridArea: "board" }}>
-                        <BoardCard title={board.title.text} body={board.body.html} fluid={board.photo.localFile.childImageSharp.fluid} />
+                        <BoardCard
+                            title={board.title.text}
+                            body={board.body.html}
+                            fluid={board.photo.localFile.childImageSharp.fluid}
+                            linkToBoards={true}
+                        />
                     </div>
                     <div style={{ gridArea: "contact" }}>
                         <Card title={data.prismicContact.data.title.text} body={data.prismicContact.data.body.html} />
@@ -61,7 +66,7 @@ export const query = graphql`
                 }
             }
         }
-        allPrismicBoard(limit: 1) {
+        allPrismicBoard(limit: 1, sort: { fields: [data___year], order: DESC }) {
             edges {
                 node {
                     ...boards
