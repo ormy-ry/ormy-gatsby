@@ -18,7 +18,6 @@ class Layout extends Component {
 
     handleModal() {
         this.setState({ modal: !this.state.modal });
-        console.log(this.state.modal);
     }
 
     render() {

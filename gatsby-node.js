@@ -16,14 +16,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             });
         if (node.data.start) {
             if (moment(node.data.start) > now) {
-                console.log("new");
                 createNodeField({
                     node,
                     name: `new`,
                     value: true
                 });
             } else {
-                console.log("old");
                 createNodeField({
                     node,
                     name: `new`,
