@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import "./components.pcss";
+@import "./cards.pcss";
+@import "./nav.pcss";
 @import "./grids.pcss";
 
 body,
