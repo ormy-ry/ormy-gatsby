@@ -9,8 +9,8 @@ export default ({ data }) => {
     return (
         <Layout>
             <HeroHeader />
-            <div className="container mx-auto">
-                <div className="-mt-20">
+            <div className="container mx-auto p-4">
+                <div className="-mt-24">
                     <div className="w-full grid-home" style={{ zIndex: "100000" }}>
                         <div className="card" style={{ gridArea: "about" }}>
                             <div className="card-title">{data.prismicAbout.data.title.text}</div>

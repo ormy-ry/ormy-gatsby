@@ -5,20 +5,22 @@ import EventCard from "../components/EventCard";
 import EventTable from "../components/EventTable";
 
 export default ({ data }) => {
-    let newEvents = data.New.edges.map(edge => (
-        <EventCard
-            key={edge.node.fields.slug}
-            title={edge.node.data.title.text}
-            body={edge.node.data.body.html}
-            start={edge.node.data.start}
-            location={edge.node.data.location}
-        />
-    ));
+    let newEvents = data.New
+        ? data.New.edges.map(edge => (
+              <EventCard
+                  key={edge.node.fields.slug}
+                  title={edge.node.data.title.text}
+                  body={edge.node.data.body.html}
+                  start={edge.node.data.start}
+                  location={edge.node.data.location}
+              />
+          ))
+        : null;
     return (
         <Layout>
-            <div className="container mx-auto px-4 pb-4 py-16">
+            <div className="container mx-auto px-4 pb-4 pt-16">
                 <div className="grid-col">
-                    {newEvents ? newEvents : null}
+                    {newEvents}
                     {data.Old.edges.length ? (
                         <>
                             <div className="card">

@@ -38,8 +38,11 @@ class Layout extends Component {
                     <>
                         <Helmet link={[{ rel: "icon", type: "image/png", sizes: "32x32", href: `${icon32}` }]} />
                         <Nav handleModal={this.handleModal} siteTitle={data.site.siteMetadata.title} />
-                        <div id="main-container">
-                            <main>{this.props.children}</main>
+                        <div className="main-container">
+                            <div className="main-container__content">
+                                <main>{this.props.children}</main>
+                            </div>
+                            <div className="flex-spacer" />
                             <Footer />
                         </div>
                         <NavModal handleModal={this.handleModal} modal={this.state.modal} />
