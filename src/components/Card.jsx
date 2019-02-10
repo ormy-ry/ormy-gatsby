@@ -5,14 +5,14 @@ class Card extends Component {
         super(props);
 
         this.state = {
-            height: 0,
             collapsed: false
         };
+
+        this.ref = React.createRef();
     }
 
     componentDidMount() {
-        let height = this.divElement.clientHeight;
-        this.setState({ height: height });
+        let height = this.ref.current.clientHeight;
 
         if (height > 600) {
             this.setState({ collapsed: true });
@@ -24,11 +24,10 @@ class Card extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div
                 className="card relative"
-                ref={divElement => (this.divElement = divElement)}
+                ref={this.ref}
                 style={{ maxHeight: this.state.collapsed ? "500px" : "", overflow: this.state.collapsed ? "hidden" : "auto" }}
             >
                 <div className="card-title">
