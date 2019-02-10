@@ -29,9 +29,6 @@ export default () => (
                                             fluid(quality: 90) {
                                                 ...GatsbyImageSharpFluid
                                             }
-                                            fixed(quality: 90) {
-                                                ...GatsbyImageSharpFixed
-                                            }
                                         }
                                     }
                                 }

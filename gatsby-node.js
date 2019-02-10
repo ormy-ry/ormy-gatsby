@@ -18,13 +18,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         createNodeField({
             name: `datetime`,
             node,
-            value: moment(node.data.start).format("DD.MM. HH:mm")
+            value: moment(node.data.start)
+                .utcOffset("+0200")
+                .format("DD.MM. HH:mm")
         });
 
         createNodeField({
             name: `datetimeFull`,
             node,
-            value: moment(node.data.start).format("DD.MM. YYYY HH:mm")
+            value: moment(node.data.start)
+                .utcOffset("+0200")
+                .format("DD.MM. YYYY HH:mm")
         });
 
         if (node.data.start) {
