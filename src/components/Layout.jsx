@@ -22,6 +22,10 @@ class Layout extends Component {
         this.setState({ modal: !this.state.modal });
     }
 
+    componentDidUpdate() {
+        this.state.modal ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto");
+    }
+
     render() {
         return (
             <StaticQuery
@@ -37,7 +41,7 @@ class Layout extends Component {
                 render={data => (
                     <>
                         <Helmet link={[{ rel: "icon", type: "image/png", sizes: "32x32", href: `${icon32}` }]} />
-                        <Nav handleModal={this.handleModal} siteTitle={data.site.siteMetadata.title} />
+                        <Nav handleModal={this.handleModal} modal={this.state.modal} siteTitle={data.site.siteMetadata.title} />
                         <div className="main-container">
                             <div className="main-container__content">
                                 <main>{this.props.children}</main>

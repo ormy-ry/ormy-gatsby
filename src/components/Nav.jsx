@@ -15,9 +15,11 @@ export default props => (
             </Link>
         </div>
         <div className="sm:inline-block md:hidden">
-            <button id="nav-menu-btn" className="nav-menu-btn cursor-pointer" onClick={() => props.handleModal()}>
-                MENU
-            </button>
+            {props.modal ? null : (
+                <button id="nav-menu-btn" className="nav-menu-btn cursor-pointer" onClick={() => props.handleModal()}>
+                    MENU
+                </button>
+            )}
         </div>
     </div>
 );
