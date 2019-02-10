@@ -1,10 +1,10 @@
 import React from "react";
+import { navigate } from "gatsby";
 
 import Home from "../assets/icons/Home";
 import Calendar from "../assets/icons/Calendar";
 import Info from "../assets/icons/Info";
 import Close from "../assets/icons/Close";
-import { navigate } from "gatsby";
 
 export default props => (
     <div>
