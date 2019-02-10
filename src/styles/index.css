@@ -52,18 +52,6 @@ thead {
     @apply border-grey-light;
 }
 
-@media (max-width: 992px) {
-    .desktop-only {
-        display: none;
-    }
-}
-
-@media (min-width: 993px) {
-    .mobile-only {
-        display: none;
-    }
-}
-
 .tr-hover:hover {
     cursor: pointer;
     @apply bg-grey-lighter;

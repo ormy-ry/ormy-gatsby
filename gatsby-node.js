@@ -31,6 +31,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
                 .format("DD.MM. YYYY HH:mm")
         });
 
+        createNodeField({
+            name: `date`,
+            node,
+            value: moment(node.data.start)
+                .utcOffset("+0200")
+                .format("DD.MM.")
+        });
+
         if (node.data.start) {
             if (moment(node.data.start) > now) {
                 createNodeField({

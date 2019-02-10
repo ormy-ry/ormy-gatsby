@@ -6,7 +6,7 @@ import Compass from "../assets/icons/Compass";
 
 export default props => (
     <div>
-        <div className="mobile-only">
+        <div className="block md:hidden">
             <table className="w-full table-fixed">
                 <thead>
                     <tr>
@@ -28,7 +28,7 @@ export default props => (
                 </tbody>
             </table>
         </div>
-        <div className="desktop-only">
+        <div className="hidden md:block">
             <table className="w-full table-fixed">
                 <thead>
                     <tr>
@@ -55,7 +55,7 @@ export default props => (
     </div>
 );
 
-const EventRow = props => (
+export const EventRow = props => (
     <tr className="tr-hover" onClick={() => navigate(`${props.slug}`)}>
         <td className="px-1">{props.title}</td>
         <td className="px-1">{props.start}</td>
@@ -63,7 +63,7 @@ const EventRow = props => (
     </tr>
 );
 
-const EventRowMobile = props => (
+export const EventRowMobile = props => (
     <tr className="tr-hover" onClick={() => navigate(`${props.slug}`)}>
         <td>
             <ul className="list-reset">

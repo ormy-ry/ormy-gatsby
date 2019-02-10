@@ -8,7 +8,12 @@ export default ({ data }) => {
     return (
         <Layout>
             <div className="container mx-auto px-4 pb-4 py-16">
-                <EventCard title={post.data.title.text} body={post.data.body.html} start={post.data.start} location={post.data.location} />
+                <EventCard
+                    title={post.data.title.text}
+                    body={post.data.body.html}
+                    start={post.fields.datetimeFull}
+                    location={post.data.location}
+                />
             </div>
         </Layout>
     );

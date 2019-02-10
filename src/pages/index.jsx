@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import HeroHeader from "../components/HeroHeader";
 import EventsList from "../components/EventsList";
 import { graphql } from "gatsby";
+import Card from "../components/Card";
 
 export default ({ data }) => {
     return (
@@ -12,12 +13,8 @@ export default ({ data }) => {
             <div className="container mx-auto p-4">
                 <div className="-mt-24">
                     <div className="w-full grid-home" style={{ zIndex: "100000" }}>
-                        <div className="card" style={{ gridArea: "about" }}>
-                            <div className="card-title">{data.prismicAbout.data.title.text}</div>
-                            <div className="card-body">
-                                <div dangerouslySetInnerHTML={{ __html: data.prismicAbout.data.body.html }} />
-                            </div>
-                            <div className="card-footer" />
+                        <div style={{ gridArea: "about" }}>
+                            <Card title={data.prismicAbout.data.title.text} body={data.prismicAbout.data.body.html} />
                         </div>
                         <div>
                             <EventsList style={{ gridArea: "events" }} />
@@ -75,6 +72,7 @@ export const query = graphql`
     fragment events on PrismicEvent {
         fields {
             slug
+            date
             datetime
             datetimeFull
         }
