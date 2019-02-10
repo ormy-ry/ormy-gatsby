@@ -7,13 +7,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     if (node.internal.type === `PrismicEvent`) {
         let date = node.data.start ? "-" + moment(node.data.start).format("DD-MM-YYYY") : "";
-        let value = `/events/${node.slugs[0]}${date}`;
-        node.slugs[0] +
-            createNodeField({
-                name: `slug`,
-                node,
-                value
-            });
+        let slug = `/events/${node.slugs[0]}${date}`;
+
+        createNodeField({
+            name: `slug`,
+            node,
+            value: slug
+        });
+
+        createNodeField({
+            name: `datetime`,
+            node,
+            value: moment(node.data.start).format("DD.MM. HH:mm")
+        });
+
+        createNodeField({
+            name: `datetimeFull`,
+            node,
+            value: moment(node.data.start).format("DD.MM. YYYY HH:mm")
+        });
+
         if (node.data.start) {
             if (moment(node.data.start) > now) {
                 createNodeField({

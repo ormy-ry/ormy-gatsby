@@ -75,6 +75,8 @@ export const query = graphql`
     fragment events on PrismicEvent {
         fields {
             slug
+            datetime
+            datetimeFull
         }
         data {
             body {
@@ -84,7 +86,7 @@ export const query = graphql`
                 text
             }
             location
-            start(formatString: "DD.MM. HH:mm")
+            start
             fullStart: start(formatString: "DD.MM. YYYY HH:mm")
         }
     }

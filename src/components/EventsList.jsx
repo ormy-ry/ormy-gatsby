@@ -40,7 +40,7 @@ export default () => (
                                 title={edge.node.data.title.text}
                                 subtitle={"Seuraava tapahtuma"}
                                 body={edge.node.data.body.html}
-                                start={edge.node.data.start}
+                                start={edge.node.fields.datetime}
                                 location={edge.node.data.location}
                             />
                         ))}

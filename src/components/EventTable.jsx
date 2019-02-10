@@ -43,7 +43,7 @@ export default props => (
                               <EventRow
                                   key={event.node.fields.slug}
                                   title={event.node.data.title.text}
-                                  start={props.fullStart ? event.node.data.fullStart : event.node.data.start}
+                                  start={props.fullStart ? event.node.fields.datetimeFull : event.node.fields.datetime}
                                   location={event.node.data.location}
                                   slug={event.node.fields.slug}
                               />
@@ -72,13 +72,13 @@ const EventRowMobile = props => (
                     <div className="h-5 mx-1">
                         <Time />
                     </div>
-                    {props.start}
+                    {props.start ? props.start : <span />}
                 </li>
                 <li className="flex flex-row items-center my-1">
                     <div className="h-5 mx-1">
                         <Compass />
                     </div>
-                    {props.location}
+                    {props.location ? props.location : <span />}
                 </li>
             </ul>
         </td>
