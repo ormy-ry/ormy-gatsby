@@ -1,4 +1,5 @@
 import React from "react";
+
 import Home from "../assets/icons/Home";
 import Calendar from "../assets/icons/Calendar";
 import Info from "../assets/icons/Info";
@@ -12,7 +13,7 @@ export default props => (
                 className="flex flex-col fixed pin-t pin-b pin-r pin-l"
                 style={{ zIndex: "50", opacity: "0.98", backgroundColor: "#212121" }}
             >
-                <div className="h-32" onClick={() => props.handleModal()}>
+                <div className="h-32 cursor-pointer" onClick={() => props.handleModal()}>
                     <div className="h-16 p-4 text-grey">
                         <Close />
                     </div>
