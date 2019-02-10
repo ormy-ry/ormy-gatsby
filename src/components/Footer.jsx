@@ -29,6 +29,9 @@ export default () => (
                                             fluid(quality: 90) {
                                                 ...GatsbyImageSharpFluid
                                             }
+                                            fixed(quality: 90) {
+                                                ...GatsbyImageSharpFixed
+                                            }
                                         }
                                     }
                                 }
@@ -39,40 +42,29 @@ export default () => (
             }
         `}
         render={data => {
+            let sponsors = data.allPrismicSponsor
+                ? data.allPrismicSponsor.edges.map(edge => (
+                      <div key={edge.node.id} className="m-8" style={{ flexBasis: "20rem", flexShrink: "1" }}>
+                          <Img
+                              style={{
+                                  filter: "brightness(0) invert(1)"
+                              }}
+                              fluid={edge.node.data.logo.localFile.childImageSharp.fluid}
+                          />
+                      </div>
+                  ))
+                : null;
+            let credits = data.prismicCredits
+                ? data.prismicCredits.data.fields.map(field => (
+                      <p className="py-2 px-4" key={field.credit}>
+                          {field.credit}
+                      </p>
+                  ))
+                : null;
             return (
-                <div className="footer flex row items-end justify-between">
-                    <div style={{ flexBasis: "0", flexGrow: "1" }}>{}</div>
-                    <div style={{ flexBasis: "0", flexGrow: "3" }} className="flex row h-full justify-around items-center">
-                        {data.allPrismicSponsor
-                            ? data.allPrismicSponsor.edges.map(edge => (
-                                  <div
-                                      key={edge.node.id}
-                                      className="my-4 mx-16"
-                                      style={{
-                                          width: "20rem",
-                                          maxHeight: "100%"
-                                      }}
-                                  >
-                                      <a href={edge.node.data.link.url}>
-                                          <Img
-                                              style={{
-                                                  filter: "brightness(0) invert(1)"
-                                              }}
-                                              fluid={edge.node.data.logo.localFile.childImageSharp.fluid}
-                                          />
-                                      </a>
-                                  </div>
-                              ))
-                            : null}
-                    </div>
-                    <div
-                        style={{ flexBasis: "0", flexGrow: "1" }}
-                        className="px-4 py-2 text-grey-light flex flex-col h-full items-end justify-end"
-                    >
-                        {data.prismicCredits
-                            ? data.prismicCredits.data.fields.map(field => <p key={field.credit}>{field.credit}</p>)
-                            : null}
-                    </div>
+                <div className="w-full h-full flex flex-col items-center justify-between" style={{ backgroundColor: "#212121" }}>
+                    <div className="flex flex-row w-full flex-wrap items-center justify-around">{sponsors}</div>
+                    <div className="text-grey-darker w-full flex flex-row justify-end">{credits}</div>
                 </div>
             );
         }}
