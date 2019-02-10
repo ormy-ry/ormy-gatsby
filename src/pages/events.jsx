@@ -11,9 +11,17 @@ export default ({ data }) => {
                   key={edge.node.fields.slug}
                   title={edge.node.data.title.text}
                   body={edge.node.data.body.html}
-                  start={edge.node.data.start}
+                  start={edge.node.fields.datetime}
                   location={edge.node.data.location}
               />
+          ))
+        : null;
+    let plannedEvents = data.Planned
+        ? data.Planned.edges.map(edge => (
+              <tr>
+                  <td>{edge.node.data.title.text}</td>
+                  <td>{edge.node.fields.datetime}</td>
+              </tr>
           ))
         : null;
     return (
@@ -21,6 +29,16 @@ export default ({ data }) => {
             <div className="container mx-auto px-4 pb-4 pt-16">
                 <div className="grid-col">
                     {newEvents}
+                    {plannedEvents ? (
+                        <div className="card">
+                            <div className="card-title">Suunnitellut tapahtumat</div>
+                            <div className="card-body">
+                                <table className="w-full table-fixed">
+                                    <tbody>{plannedEvents}</tbody>
+                                </table>
+                            </div>
+                        </div>
+                    ) : null}
                     {data.Old.edges.length ? (
                         <>
                             <div className="card">
@@ -39,7 +57,22 @@ export default ({ data }) => {
 
 export const query = graphql`
     query {
-        New: allPrismicEvent(filter: { fields: { new: { eq: true } } }, sort: { fields: [data___start], order: ASC }, limit: 10) {
+        New: allPrismicEvent(
+            filter: { fields: { new: { eq: true } }, data: { body: { html: { ne: null } } } }
+            sort: { fields: [data___start], order: ASC }
+            limit: 10
+        ) {
+            edges {
+                node {
+                    ...events
+                }
+            }
+        }
+        Planned: allPrismicEvent(
+            filter: { fields: { new: { eq: true } }, data: { body: { html: { eq: null } } } }
+            sort: { fields: [data___start], order: ASC }
+            limit: 10
+        ) {
             edges {
                 node {
                     ...events

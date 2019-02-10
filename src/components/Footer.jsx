@@ -61,7 +61,7 @@ export default () => (
             return (
                 <div className="w-full h-full flex flex-col items-center justify-between" style={{ backgroundColor: "#212121" }}>
                     <div className="flex flex-row w-full flex-wrap items-center justify-around">{sponsors}</div>
-                    <div className="text-grey-darker w-full flex flex-row justify-end">{credits}</div>
+                    <div className="text-grey-darker w-full flex flex-row justify-around md:justify-end">{credits}</div>
                 </div>
             );
         }}

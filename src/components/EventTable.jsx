@@ -67,7 +67,7 @@ const EventRowMobile = props => (
     <tr className="tr-hover" onClick={() => navigate(`${props.slug}`)}>
         <td>
             <ul className="list-reset">
-                <li className=" my-1 font-semibold">{props.title}</li>
+                <li className=" mt-1 mb-2 mx-1 font-semibold">{props.title}</li>
                 <li className="flex flex-row items-center my-1">
                     <div className="h-5 mx-1">
                         <Time />

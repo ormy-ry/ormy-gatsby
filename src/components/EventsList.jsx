@@ -8,7 +8,22 @@ export default () => (
     <StaticQuery
         query={graphql`
             query {
-                allPrismicEvent(filter: { fields: { new: { eq: true } } }, sort: { fields: [data___start], order: ASC }, limit: 10) {
+                Events: allPrismicEvent(
+                    filter: { fields: { new: { eq: true } } }
+                    sort: { fields: [data___start], order: ASC }
+                    limit: 10
+                ) {
+                    edges {
+                        node {
+                            ...events
+                        }
+                    }
+                }
+                Planned: allPrismicEvent(
+                    filter: { fields: { new: { eq: true } }, data: { body: { html: { eq: null } } } }
+                    sort: { fields: [data___start], order: ASC }
+                    limit: 10
+                ) {
                     edges {
                         node {
                             ...events
@@ -18,7 +33,22 @@ export default () => (
             }
         `}
         render={data => {
-            if (!data.allPrismicEvent) {
+            let hasFutureEvents = Object.keys(data.Events).length ? true : false;
+            let hasPlannedEvents = Object.keys(data.Planned).length ? true : false;
+
+            if (hasFutureEvents)
+                return (
+                    <div>
+                        {hasFutureEvents ? (
+                            <div className="card">
+                                <div className="card-title">Tulevat tapahtumat</div>
+                                <div className="card-body">aa.</div>
+                            </div>
+                        ) : null}
+                    </div>
+                );
+            /*
+            if (!data.Events) {
                 return (
                     <Card
                         title={"Ei tulevia tapahtumia kalenterissa"}
@@ -31,7 +61,7 @@ export default () => (
                         `}
                     />
                 );
-            } else if (data.allPrismicEvent.edges.length === 1) {
+            } else if (data.Events.edges.length === 1) {
                 return (
                     <div data={data}>
                         {data.allPrismicEvent.edges.map(edge => (
@@ -50,11 +80,11 @@ export default () => (
                 return (
                     <div className="card">
                         <div className="card-body">
-                            <EventTable events={data.allPrismicEvent.edges} />
+                            <EventTable events={data.Events.edges} />
                         </div>
                     </div>
                 );
-            }
+            }*/
         }}
     />
 );

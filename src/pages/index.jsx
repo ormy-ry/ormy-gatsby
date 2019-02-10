@@ -121,12 +121,5 @@ export const query = graphql`
         prismicHeaderBackground {
             ...headerbg
         }
-        allPrismicEvent(filter: { fields: { new: { eq: true } } }) {
-            edges {
-                node {
-                    ...events
-                }
-            }
-        }
     }
 `;
