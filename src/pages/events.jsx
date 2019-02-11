@@ -5,8 +5,6 @@ import Layout from "../components/Layout";
 import EventCard from "../components/EventCard";
 import EventTable from "../components/EventTable";
 
-import Clock from "../assets/icons/Clock";
-
 export default ({ data }) => {
     const plannedEvents = data.New.edges.filter(edge => {
         return edge.node.data.body.text === "" || edge.node.data.body.text === null;
