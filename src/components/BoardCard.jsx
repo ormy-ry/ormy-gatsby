@@ -22,7 +22,6 @@ export default props => {
 
     const title = `Hallitus ${props.board.node.data.year}`;
 
-    console.log(props.board.node.data.board);
     return (
         <div className="card">
             <div className="lg:hidden">
