@@ -8,18 +8,7 @@ export default () => (
         query={graphql`
             query {
                 Events: allPrismicEvent(
-                    filter: { fields: { new: { eq: true } }, data: { body: { html: { ne: null } } } }
-                    sort: { fields: [data___start], order: ASC }
-                    limit: 10
-                ) {
-                    edges {
-                        node {
-                            ...events
-                        }
-                    }
-                }
-                Planned: allPrismicEvent(
-                    filter: { fields: { new: { eq: true } }, data: { body: { html: { eq: null } } } }
+                    filter: { fields: { new: { eq: true } } }
                     sort: { fields: [data___start], order: ASC }
                     limit: 10
                 ) {
@@ -32,18 +21,24 @@ export default () => (
             }
         `}
         render={data => {
-            let hasFutureEvents = Object.keys(data.Events).length ? true : false;
-            let hasPlannedEvents = Object.keys(data.Planned).length ? true : false;
+            const plannedEvents = data.Events.edges.filter(edge => {
+                return edge.node.data.body.text === "" || edge.node.data.body.text === null;
+            });
+
+            const futureEvents = data.Events.edges.filter(edge => {
+                console.log(edge.node.data.body);
+                return edge.node.data.body.text !== "" && edge.node.data.body.text !== null;
+            });
 
             return (
                 <div className="p-0 grid-col">
-                    {hasFutureEvents ? (
+                    {futureEvents.length ? (
                         <div className="card">
                             <div className="card-title">Tulevat tapahtumat</div>
                             <div className="card-body">
                                 <table className="w-full table-fixed lg:hidden w-full">
                                     <tbody className="">
-                                        {data.Events.edges.map(edge => (
+                                        {futureEvents.map(edge => (
                                             <EventRowMobile
                                                 key={edge.node.fields.slug}
                                                 title={edge.node.data.title.text}
@@ -63,7 +58,7 @@ export default () => (
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {data.Events.edges.map(edge => (
+                                        {futureEvents.map(edge => (
                                             <EventRow
                                                 key={edge.node.fields.slug}
                                                 title={edge.node.data.title.text}
@@ -77,7 +72,7 @@ export default () => (
                             </div>
                         </div>
                     ) : null}
-                    {hasPlannedEvents ? (
+                    {plannedEvents.length ? (
                         <div className="card">
                             <div className="card-title">Suunnitellut tapahtumat</div>
                             <div className="card-body">
@@ -89,8 +84,8 @@ export default () => (
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {data.Planned.edges.map(edge => (
-                                            <tr>
+                                        {plannedEvents.map(edge => (
+                                            <tr key={edge.node.id}>
                                                 <td>{edge.node.data.title.text}</td>
                                                 <td>{edge.node.fields.date}</td>
                                             </tr>
@@ -100,7 +95,7 @@ export default () => (
                             </div>
                         </div>
                     ) : null}
-                    {!hasFutureEvents && !hasPlannedEvents ? (
+                    {!plannedEvents.length && !futureEvents.length ? (
                         <div className="card">
                             <div className="card-title">Ei tulevia tapahtumia</div>
                             <div className="card-body">

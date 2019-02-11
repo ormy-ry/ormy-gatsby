@@ -11,6 +11,7 @@ export default ({ data }) => {
 
     let cards = data.allPrismicBoard.edges.map(edge => (
         <BoardCard
+            key={edge.node.id}
             title={edge.node.data.title.text}
             body={edge.node.data.body.html}
             fluid={edge.node.data.photo.localFile.childImageSharp.fluid}
@@ -19,7 +20,7 @@ export default ({ data }) => {
 
     return (
         <Layout>
-            <div className="container mx-auto px-4 pb-4 py-16">
+            <div className="container mx-auto py-16">
                 <div className="grid-col">{cards ? cards : null}</div>
             </div>
         </Layout>

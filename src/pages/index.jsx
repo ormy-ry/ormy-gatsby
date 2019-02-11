@@ -10,7 +10,7 @@ export default ({ data }) => {
     return (
         <Layout>
             <HeroHeader />
-            <div className="container mx-auto p-4">
+            <div className="container mx-auto pb-16">
                 <div className="-mt-24">
                     <div className="w-full grid-home" style={{ zIndex: "100000" }}>
                         <div style={{ gridArea: "about" }}>
@@ -76,9 +76,11 @@ export const query = graphql`
             datetime
             datetimeFull
         }
+        id
         data {
             body {
                 html
+                text
             }
             title {
                 text
@@ -89,6 +91,7 @@ export const query = graphql`
         }
     }
     fragment boards on PrismicBoard {
+        id
         data {
             title {
                 text

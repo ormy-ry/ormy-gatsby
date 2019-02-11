@@ -1,19 +1,21 @@
 .grid-home {
-    padding: 0.5rem;
     display: grid;
-    gap: 1rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas: "about" "events" "contact";
+
+    padding: 1rem;
+    gap: 1rem;
 }
 
 .grid-info {
-    padding: 0.5rem;
     display: grid;
-    gap: 1rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas: "membership" "board" "contact" "documents";
+
+    padding: 1rem;
+    gap: 1rem;
 }
 
 .grid-events {
@@ -23,43 +25,46 @@
     grid-template-areas: "new" "planned" "old";
 
     padding: 1rem;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .grid-col {
-    padding: 0.5rem;
     display: grid;
-    gap: 1rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+
+    padding: 1rem;
+    gap: 1rem;
 }
 
 @media (min-width: 992px) {
     .grid-home {
-        padding: 1rem;
-        gap: 2rem;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
         grid-template-areas: "about about" "events contact";
+
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
 
     .grid-info {
-        padding: 1rem;
-        gap: 2rem;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         grid-template-areas: "membership membership" "board board" "contact documents";
+
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
     .grid-col {
-        padding: 1rem;
-        gap: 2rem;
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
     .grid-events {
         grid-template-columns: 3fr 1fr;
         grid-template-rows: auto;
         grid-template-areas: "new planned" "old old";
 
-        padding: 1rem;
-        gap: 2rem;
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
 }

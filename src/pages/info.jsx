@@ -9,7 +9,7 @@ export default ({ data }) => {
     const board = data.allPrismicBoard.edges[0].node.data;
     return (
         <Layout>
-            <div className="container mx-auto px-4 pb-4 py-16">
+            <div className="container mx-auto py-16">
                 <div className="grid-info">
                     <div style={{ gridArea: "membership" }}>
                         <Card title={data.prismicMembership.data.title.text} body={data.prismicMembership.data.body.html} />
