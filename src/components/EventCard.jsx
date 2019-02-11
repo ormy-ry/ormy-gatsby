@@ -1,5 +1,5 @@
 import React from "react";
-import Time from "../assets/icons/Time";
+import Clock from "../assets/icons/Clock";
 import Compass from "../assets/icons/Compass";
 
 export default props => (
@@ -14,7 +14,7 @@ export default props => (
                 <span className="tag">
                     {" "}
                     <span className="tag-icon">
-                        <Time />
+                        <Clock />
                     </span>{" "}
                     {props.start}
                 </span>
