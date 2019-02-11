@@ -28,7 +28,7 @@ export default ({ data }) => {
                           <div className="h-5 mx-1 text-font-semibold">
                               <Time />
                           </div>
-                          {edge.node.fields.datetime}
+                          {edge.node.fields.date}
                       </li>
                   </ul>
               </li>

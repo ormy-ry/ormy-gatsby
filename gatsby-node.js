@@ -32,20 +32,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             value: start.format("DD.MM.")
         });
 
-        if (node.data.start) {
-            if (moment(node.data.start) > now) {
-                createNodeField({
-                    node,
-                    name: `new`,
-                    value: true
-                });
-            } else {
-                createNodeField({
-                    node,
-                    name: `new`,
-                    value: false
-                });
-            }
+        if (start > now) {
+            createNodeField({
+                node,
+                name: `new`,
+                value: true
+            });
+        } else {
+            createNodeField({
+                node,
+                name: `new`,
+                value: false
+            });
         }
     }
 };
