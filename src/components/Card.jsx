@@ -38,14 +38,10 @@ class Card extends Component {
                 <div className="card-footer" />
                 {this.state.collapsed ? (
                     <div
-                        className="absolute pin-r pin-l pin-b flex flex-row items-center justify-center pt-16"
-                        style={{ backgroundImage: "linear-gradient(to bottom, transparent, #fdfdfd)" }}
+                        className="absolute pin-r pin-l pin-b flex flex-row items-center justify-center pt-8"
+                        style={{ backgroundImage: "linear-gradient(to bottom, rgba(255,255,255,0), #fdfdfd)" }}
                     >
-                        <button
-                            style={{ backgroundImage: "linear-gradient(to bottom, transparent, #fdfdfd)" }}
-                            className="text-blue-darker px-4 pt-4 pb-3"
-                            onClick={() => this.reveal()}
-                        >
+                        <button className="text-blue-darker px-4 pt-4 pb-3" onClick={() => this.reveal()}>
                             Lue lisää
                         </button>
                     </div>
