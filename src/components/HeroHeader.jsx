@@ -27,10 +27,10 @@ export default () => (
             return (
                 <div className="hero-header" style={{ position: "relative" }}>
                     <Img
-                        style={{ position: "absolute", bottom: "0", top: "0", left: "0", right: "0", width: "100%", zIndex: "-1" }}
+                        style={{ position: "absolute", bottom: "0", top: "0", left: "0", right: "0", width: "100%", zIndex: "0" }}
                         fluid={data.prismicHeaderBackground.data.image.localFile.childImageSharp.fluid}
                     />
-                    <Logo style={{ zIndex: "1" }} />
+                    <Logo />
                 </div>
             );
         }}
