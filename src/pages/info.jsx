@@ -6,7 +6,6 @@ import Card from "../components/Card";
 import BoardCard from "../components/BoardCard";
 
 export default ({ data }) => {
-    const board = data.allPrismicBoard.edges[0].node.data;
     return (
         <Layout>
             <div className="container mx-auto py-16">
@@ -15,12 +14,7 @@ export default ({ data }) => {
                         <Card title={data.prismicMembership.data.title.text} body={data.prismicMembership.data.body.html} />
                     </div>
                     <div style={{ gridArea: "board" }}>
-                        <BoardCard
-                            title={board.title.text}
-                            body={board.body.html}
-                            fluid={board.photo.localFile.childImageSharp.fluid}
-                            linkToBoards={true}
-                        />
+                        <BoardCard board={data.allPrismicBoard.edges[0]} />
                     </div>
                     <div style={{ gridArea: "contact" }}>
                         <Card title={data.prismicContact.data.title.text} body={data.prismicContact.data.body.html} />

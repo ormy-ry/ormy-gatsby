@@ -93,13 +93,14 @@ export const query = graphql`
     fragment boards on PrismicBoard {
         id
         data {
-            title {
-                text
+            year(formatString: "YYYY")
+            board {
+                member
             }
-            body {
-                html
+            officials {
+                member
             }
-            year
+
             photo {
                 localFile {
                     childImageSharp {
