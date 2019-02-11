@@ -1,7 +1,7 @@
 import React from "react";
 import { navigate } from "gatsby-link";
 
-import Time from "../assets/icons/Time";
+import Clock from "../assets/icons/Clock";
 import Compass from "../assets/icons/Compass";
 
 export default props => (
@@ -69,13 +69,13 @@ export const EventRowMobile = props => (
             <ul className="list-reset">
                 <li className=" mt-1 mb-2 mx-1 font-semibold">{props.title}</li>
                 <li className="flex flex-row items-center my-1">
-                    <div className="h-5 mx-1">
-                        <Time />
+                    <div className="h-5 mx-1 text-grey-dark">
+                        <Clock />
                     </div>
                     {props.start ? props.start : <span />}
                 </li>
                 <li className="flex flex-row items-center my-1">
-                    <div className="h-5 mx-1">
+                    <div className="h-5 mx-1 text-grey-dark">
                         <Compass />
                     </div>
                     {props.location ? props.location : <span />}

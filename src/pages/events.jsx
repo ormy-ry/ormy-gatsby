@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import EventCard from "../components/EventCard";
 import EventTable from "../components/EventTable";
 
-import Time from "../assets/icons/Time";
+import Clock from "../assets/icons/Clock";
 
 export default ({ data }) => {
     let newEvents = data.New
@@ -25,8 +25,8 @@ export default ({ data }) => {
                   <ul className="list-reset">
                       <li className=" mt-1 mb-2 mx-1 font-semibold">{edge.node.data.title.text}</li>
                       <li className="flex flex-row items-center my-1">
-                          <div className="h-5 mx-1 text-font-semibold">
-                              <Time />
+                          <div className="h-5 mx-1 text-font-semibold text-grey-dark">
+                              <Clock />
                           </div>
                           {edge.node.fields.date}
                       </li>
