@@ -45,7 +45,7 @@ export default ({ data }) => {
                                         </thead>
                                         <tbody>
                                             {plannedEvents.map(event => (
-                                                <tr>
+                                                <tr key={event.node.id}>
                                                     <td>{event.node.data.title.text}</td>
                                                     <td className="float-right md:float-none">{event.node.fields.date}</td>
                                                 </tr>

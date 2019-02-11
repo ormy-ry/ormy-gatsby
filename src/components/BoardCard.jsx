@@ -25,7 +25,7 @@ export default props => (
                     className="board-info h-12"
                     style={{ position: "absolute", bottom: "1rem", right: "1rem", zIndex: "2", pointerEvents: "none" }}
                 >
-                    <span class="board-info-icon text-black">
+                    <span className="board-info-icon text-black">
                         <InfoOutline />
                     </span>
                 </div>
