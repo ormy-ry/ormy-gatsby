@@ -4,7 +4,7 @@ import Link from "gatsby-link";
 
 export default props => (
     <div className="card">
-        <Img fluid={props.fluid} />
+        <Img style={{ borderRadius: "0.25rem .25rem 0 0" }} fluid={props.fluid} />
         <div className="card-title">{props.title}</div>
         <div className="card-body" dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.linkToBoards ? (
