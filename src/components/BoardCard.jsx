@@ -1,6 +1,5 @@
 import React from "react";
 import Img from "gatsby-image";
-import Link from "gatsby-link";
 import InfoOutline from "../assets/icons/InfoOutline";
 
 export default props => {
