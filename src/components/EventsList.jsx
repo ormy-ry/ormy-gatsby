@@ -26,7 +26,6 @@ export default () => (
             });
 
             const futureEvents = data.Events.edges.filter(edge => {
-                console.log(edge.node.data.body);
                 return edge.node.data.body.text !== "" && edge.node.data.body.text !== null;
             });
 
