@@ -6,37 +6,36 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const now = moment();
 
     if (node.internal.type === `PrismicEvent`) {
-        let date = node.data.start ? "-" + moment(node.data.start).format("DD-MM-YYYY") : "";
-        let slug = `/events/${node.slugs[0]}${date}`;
+        let start = moment(node.data.start);
+
+        if (start.isDST()) {
+            start = start.utcOffset("+0300");
+        } else {
+            start = start.utcOffset("+0200");
+        }
 
         createNodeField({
             name: `slug`,
             node,
-            value: slug
+            value: `/events/${node.slugs[0]}${start.format("DD-MM-YYYY")}`
         });
 
         createNodeField({
             name: `datetime`,
             node,
-            value: moment(node.data.start)
-                .utcOffset("+0200")
-                .format("DD.MM. HH:mm")
+            value: start.format("DD.MM. HH:mm")
         });
 
         createNodeField({
             name: `datetimeFull`,
             node,
-            value: moment(node.data.start)
-                .utcOffset("+0200")
-                .format("DD.MM. YYYY HH:mm")
+            value: start.format("DD.MM. YYYY HH:mm")
         });
 
         createNodeField({
             name: `date`,
             node,
-            value: moment(node.data.start)
-                .utcOffset("+0200")
-                .format("DD.MM.")
+            value: start.format("DD.MM.")
         });
 
         if (node.data.start) {
