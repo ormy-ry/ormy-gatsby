@@ -5,11 +5,19 @@ import InfoOutline from "../assets/icons/InfoOutline";
 
 export default props => {
     const boardMembers = props.board.node.data.board
-        ? props.board.node.data.board.map(field => <li className="py-1">{field.member}</li>)
+        ? props.board.node.data.board.map(field => (
+              <li key={field.member} className="py-1">
+                  {field.member}
+              </li>
+          ))
         : [];
 
     const officials = props.board.node.data.officials
-        ? props.board.node.data.officials.map(field => <li className="py-1">{field.member}</li>)
+        ? props.board.node.data.officials.map(field => (
+              <li key={field.member} className="py-1">
+                  {field.member}
+              </li>
+          ))
         : [];
 
     const title = `Hallitus ${props.board.node.data.year}`;
