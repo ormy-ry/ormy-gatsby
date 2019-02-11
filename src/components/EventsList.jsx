@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Link from "gatsby-link";
-import EventCard from "./EventCard";
-import Card from "./Card";
 import { EventRowMobile, EventRow } from "./EventTable";
 
 export default () => (

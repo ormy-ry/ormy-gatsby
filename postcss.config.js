@@ -1,5 +1,13 @@
 const tailwindcss = require("tailwindcss");
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
-    plugins: [tailwindcss("./tailwind.js"), require("autoprefixer")]
+    plugins: [
+        require("postcss-import"),
+        tailwindcss("./tailwind.js"),
+        autoprefixer({
+            grid: true,
+            browsers: [">5%"]
+        })
+    ]
 };
