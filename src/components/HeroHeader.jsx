@@ -14,7 +14,7 @@ export default () => (
                             localFile {
                                 childImageSharp {
                                     fluid(maxWidth: 2440, quality: 90) {
-                                        ...GatsbyImageSharpFluid
+                                        ...GatsbyImageSharpFluid_withWebp
                                     }
                                 }
                             }
