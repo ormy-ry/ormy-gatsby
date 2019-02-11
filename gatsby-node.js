@@ -1,4 +1,4 @@
-const moment = require("moment");
+const moment = require("moment-timezone");
 const path = require("path");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -6,13 +6,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const now = moment();
 
     if (node.internal.type === `PrismicEvent`) {
-        let start = moment(node.data.start);
-
-        if (start.isDST()) {
-            start = start.utcOffset("+0300");
-        } else {
-            start = start.utcOffset("+0200");
-        }
+        let start = moment(node.data.start).tz("Europe/Riga");
 
         createNodeField({
             name: `slug`,
