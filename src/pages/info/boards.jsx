@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/Layout";
-import BoardCard from "../components/BoardCard";
+import Layout from "../../components/Layout";
+import BoardCard from "../../components/BoardCard";
 
 export default ({ data }) => {
     if (!data.allPrismicBoard) {

@@ -57,3 +57,30 @@ thead {
     cursor: pointer;
     @apply bg-grey-lighter;
 }
+
+.board-card {
+    position: relative;
+    transition: 0.2s;
+    background-image: linear-gradient(to right top, #000000, #22080d, #390910, #50040d, #660000);
+}
+
+.board-pic {
+    transition: 0.2s;
+}
+.board-text {
+    @apply absolute pin-t pin-b pin-r pin-l m-4;
+}
+
+.board-pic:hover {
+    opacity: 0.2;
+}
+
+.board-pic:hover + .board-info > .board-info-icon {
+    color: transparent;
+    width: 0;
+    height: 0;
+}
+
+.board-info-link {
+    color: transparent;
+}

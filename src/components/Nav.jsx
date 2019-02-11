@@ -16,7 +16,7 @@ export default props => (
                     etusivu
                 </span>
             </Link>
-            <Link className="nav-link h-full inline-block" activeClassName="nav-link--active" to="/events">
+            <Link className="nav-link h-full inline-block" activeClassName="nav-link--active" to="/events/">
                 <span className="inline-flex flex-row items-center h-full">
                     <div className="h-6 mx-1 nav-icon" style={{ opacity: "0.7" }}>
                         <Calendar />
@@ -24,7 +24,7 @@ export default props => (
                     tapahtumat
                 </span>
             </Link>
-            <Link className="nav-link h-full inline-block" activeClassName="nav-link--active" to="/info">
+            <Link className="nav-link h-full inline-block" activeClassName="nav-link--active" to="/info/">
                 <span className="inline-flex flex-row items-center h-full">
                     <div className="h-6 mx-1 nav-icon" style={{ opacity: "0.7" }}>
                         <Info />
