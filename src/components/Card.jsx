@@ -37,14 +37,20 @@ class Card extends Component {
                 <div className="card-body" dangerouslySetInnerHTML={{ __html: this.props.body }} />
                 <div className="card-footer" />
                 {this.state.collapsed ? (
-                    <div
-                        className="absolute pin-r pin-l pin-b flex flex-row items-center justify-center pt-32"
-                        style={{ backgroundImage: "linear-gradient(to bottom, rgba(255,255,255,0), #fdfdfd)" }}
-                    >
-                        <button className="text-blue-darker font-semibold px-4 pt-4 pb-2" onClick={() => this.reveal()}>
-                            Lue lisää
-                        </button>
-                    </div>
+                    <>
+                        <div
+                            className="absolute pin-r pin-l pt-16"
+                            style={{ bottom: "4rem", backgroundImage: "linear-gradient(to bottom, rgba(255,255,255,0), #fdfdfd)" }}
+                        />
+                        <div
+                            className="absolute pin-r pin-l pin-b flex flex-row items-center justify-center h-16 border-grey-light"
+                            style={{ backgroundColor: "#fdfdfd", borderTop: "2px solid #dae1e7" }}
+                        >
+                            <button className="text-blue-darker font-semibold px-8 py-4" onClick={() => this.reveal()}>
+                                Lue lisää
+                            </button>
+                        </div>
+                    </>
                 ) : null}
             </div>
         );
