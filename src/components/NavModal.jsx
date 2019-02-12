@@ -67,18 +67,18 @@ export default props => (
                     <div className="m-16">
                         <form name="signup" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                             <input type="hidden" name="form-name" value="signup" />
-                            <div class="mb-4">
-                                <label class="block text-grey-darker text-sm font-bold mb-2">Nimi</label>
+                            <div className="mb-4">
+                                <label className="block text-grey-darker text-sm font-bold mb-2">Nimi</label>
                                 <input
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
                                     id="Sähköpostiosoite"
                                     type="name"
                                 />
                             </div>
-                            <div class="mb-6">
-                                <label class="block text-grey-darker text-sm font-bold mb-2">Sähköpostiosoite</label>
+                            <div className="mb-6">
+                                <label className="block text-grey-darker text-sm font-bold mb-2">Sähköpostiosoite</label>
                                 <input
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
                                     id="Sähköpostiosoite"
                                     type="email"
                                 />
