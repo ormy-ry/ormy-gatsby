@@ -5,6 +5,7 @@ import Home from "../assets/icons/Home";
 import Calendar from "../assets/icons/Calendar";
 import Info from "../assets/icons/Info";
 import Close from "../assets/icons/Close";
+import Mail from "../assets/icons/Mail";
 
 export default props => (
     <div>
@@ -18,7 +19,7 @@ export default props => (
                         <Close />
                     </div>
                 </div>
-                <div className="flex flex-row h-full w-full" onClick={() => props.handleModal()}>
+                <div className="flex flex-row w-full pb-8" onClick={() => props.handleModal()}>
                     <div style={{ flex: "0 0 33.33%" }}>
                         <div
                             style={{ maxWidth: "6rem" }}
@@ -50,6 +51,51 @@ export default props => (
                         </div>
                     </div>
                 </div>
+                {!props.emailMobile ? (
+                    <div className="flex flex-row justify-center items-center">
+                        <div
+                            style={{ maxWidth: "6rem" }}
+                            className="flex flex-col m-auto items-center justify-between p-4 text-grey-lightest cursor-pointer"
+                            onClick={() => props.handleEmailMobile()}
+                        >
+                            <Mail />
+                            <span className="uppercase font-semibold pt-2">sähköpostilista</span>
+                        </div>
+                    </div>
+                ) : null}
+                {props.emailMobile ? (
+                    <div className="m-16">
+                        <form name="signup" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                            <input type="hidden" name="form-name" value="signup" />
+                            <div class="mb-4">
+                                <label class="block text-grey-darker text-sm font-bold mb-2">Nimi</label>
+                                <input
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+                                    id="Sähköpostiosoite"
+                                    type="name"
+                                />
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-grey-darker text-sm font-bold mb-2">Sähköpostiosoite</label>
+                                <input
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+                                    id="Sähköpostiosoite"
+                                    type="email"
+                                />
+                            </div>
+                            <div>
+                                <button className="bg-grey-darkest hover:bg-black text-white font-bold py-2 px-4 rounded">Tallenna</button>
+                                <button
+                                    type="button"
+                                    className="underline text-grey-dark py-2 px-4"
+                                    onClick={() => props.handleEmailMobile()}
+                                >
+                                    Peru
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                ) : null}
             </div>
         ) : null}
     </div>

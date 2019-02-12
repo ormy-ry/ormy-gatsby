@@ -15,10 +15,13 @@ class Layout extends Component {
         super(props);
         this.state = {
             navModal: false,
-            emailModal: false
+            emailModal: false,
+
+            emailMobile: false
         };
         this.handleNavModal = this.handleNavModal.bind(this);
         this.handleEmailModal = this.handleEmailModal.bind(this);
+        this.handleEmailMobile = this.handleEmailMobile.bind(this);
     }
 
     handleNavModal() {
@@ -26,8 +29,11 @@ class Layout extends Component {
     }
 
     handleEmailModal() {
-        console.log(this.state.emailModal);
         this.setState({ emailModal: !this.state.emailModal });
+    }
+
+    handleEmailMobile() {
+        this.setState({ emailMobile: !this.state.emailMobile });
     }
 
     componentDidUpdate() {
@@ -63,7 +69,12 @@ class Layout extends Component {
                             <Footer />
                         </div>
                         <EmailModal handleModal={this.handleEmailModal} modal={this.state.emailModal} />
-                        <NavModal handleModal={this.handleNavModal} modal={this.state.navModal} />
+                        <NavModal
+                            handleEmailMobile={this.handleEmailMobile}
+                            emailMobile={this.state.emailMobile}
+                            handleModal={this.handleNavModal}
+                            modal={this.state.navModal}
+                        />
                     </>
                 )}
             />
