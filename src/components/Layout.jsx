@@ -17,7 +17,7 @@ class Layout extends Component {
             navModal: false,
             emailModal: false
         };
-        this.handleModal = this.handleModal.bind(this);
+        this.handleNavModal = this.handleNavModal.bind(this);
     }
 
     handleNavModal() {
