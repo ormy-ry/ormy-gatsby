@@ -8,6 +8,7 @@ import "../styles/index.css";
 import Footer from "./Footer";
 import NavModal from "./NavModal";
 import icon32 from "../images/icon32.jpg";
+import EmailModal from "./EmailModal";
 
 class Layout extends Component {
     constructor(props) {
@@ -49,6 +50,7 @@ class Layout extends Component {
                             <div className="flex-spacer" />
                             <Footer />
                         </div>
+                        <EmailModal />
                         <NavModal handleModal={this.handleModal} modal={this.state.modal} />
                     </>
                 )}
