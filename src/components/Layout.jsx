@@ -18,6 +18,7 @@ class Layout extends Component {
             emailModal: false
         };
         this.handleNavModal = this.handleNavModal.bind(this);
+        this.handleEmailModal = this.handleEmailModal.bind(this);
     }
 
     handleNavModal() {
@@ -25,6 +26,7 @@ class Layout extends Component {
     }
 
     handleEmailModal() {
+        console.log(this.state.emailModal);
         this.setState({ emailModal: !this.state.emailModal });
     }
 
@@ -47,7 +49,12 @@ class Layout extends Component {
                 render={data => (
                     <>
                         <Helmet link={[{ rel: "icon", type: "image/png", sizes: "32x32", href: `${icon32}` }]} />
-                        <Nav handleModal={this.handleModal} modal={this.state.navModal} siteTitle={data.site.siteMetadata.title} />
+                        <Nav
+                            handleNavModal={this.handleNavModal}
+                            handleEmailModal={this.handleEmailModal}
+                            modal={this.state.navModal}
+                            siteTitle={data.site.siteMetadata.title}
+                        />
                         <div className="main-container">
                             <div className="main-container__content">
                                 <main>{this.props.children}</main>
@@ -55,7 +62,7 @@ class Layout extends Component {
                             <div className="flex-spacer" />
                             <Footer />
                         </div>
-                        <EmailModal />
+                        <EmailModal handleModal={this.handleEmailModal} modal={this.state.emailModal} />
                         <NavModal handleModal={this.handleNavModal} modal={this.state.navModal} />
                     </>
                 )}

@@ -33,18 +33,18 @@ export default props => (
                     info
                 </span>
             </Link>
-            <Link className="nav-link h-full inline-block float-right" activeClassName="nav-link--active" to="/info/">
+            <button className="nav-link h-full inline-block float-right" onClick={() => props.handleEmailModal()}>
                 <span className="inline-flex flex-row items-center h-full">
                     <div className="h-6 mx-1 nav-icon" style={{ opacity: "0.7" }}>
                         <Mail />
                     </div>
                     sähköpostilista
                 </span>
-            </Link>
+            </button>
         </div>
         <div className="sm:inline-block md:hidden">
             {props.modal ? null : (
-                <button id="nav-menu-btn" className="nav-menu-btn cursor-pointer" onClick={() => props.handleModal()}>
+                <button id="nav-menu-btn" className="nav-menu-btn cursor-pointer" onClick={() => props.handleNavModal()}>
                     MENU
                 </button>
             )}
