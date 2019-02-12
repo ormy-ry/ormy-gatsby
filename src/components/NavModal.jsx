@@ -6,6 +6,7 @@ import Calendar from "../assets/icons/Calendar";
 import Info from "../assets/icons/Info";
 import Close from "../assets/icons/Close";
 import Mail from "../assets/icons/Mail";
+import EmailForm from "./EmailForm";
 
 export default props => (
     <div>
@@ -65,35 +66,7 @@ export default props => (
                 ) : null}
                 {props.emailMobile ? (
                     <div className="m-16">
-                        <form name="signup" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-                            <input type="hidden" name="form-name" value="signup" />
-                            <div className="mb-4">
-                                <label className="block text-grey-darker text-sm font-bold mb-2">Nimi</label>
-                                <input
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
-                                    id="Sähköpostiosoite"
-                                    type="name"
-                                />
-                            </div>
-                            <div className="mb-6">
-                                <label className="block text-grey-darker text-sm font-bold mb-2">Sähköpostiosoite</label>
-                                <input
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
-                                    id="Sähköpostiosoite"
-                                    type="email"
-                                />
-                            </div>
-                            <div>
-                                <button className="bg-grey-darkest hover:bg-black text-white font-bold py-2 px-4 rounded">Tallenna</button>
-                                <button
-                                    type="button"
-                                    className="underline text-grey-dark py-2 px-4"
-                                    onClick={() => props.handleEmailMobile()}
-                                >
-                                    Peru
-                                </button>
-                            </div>
-                        </form>
+                        <EmailForm handleCancel={props.handleEmailMobile} />
                     </div>
                 ) : null}
             </div>
