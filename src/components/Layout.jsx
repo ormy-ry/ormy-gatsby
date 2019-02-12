@@ -14,17 +14,22 @@ class Layout extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            navModal: false,
+            emailModal: false
         };
         this.handleModal = this.handleModal.bind(this);
     }
 
-    handleModal() {
-        this.setState({ modal: !this.state.modal });
+    handleNavModal() {
+        this.setState({ navModal: !this.state.navModal });
+    }
+
+    handleEmailModal() {
+        this.setState({ emailModal: !this.state.emailModal });
     }
 
     componentDidUpdate() {
-        this.state.modal ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto");
+        this.state.navModal ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto");
     }
 
     render() {
@@ -42,7 +47,7 @@ class Layout extends Component {
                 render={data => (
                     <>
                         <Helmet link={[{ rel: "icon", type: "image/png", sizes: "32x32", href: `${icon32}` }]} />
-                        <Nav handleModal={this.handleModal} modal={this.state.modal} siteTitle={data.site.siteMetadata.title} />
+                        <Nav handleModal={this.handleModal} modal={this.state.navModal} siteTitle={data.site.siteMetadata.title} />
                         <div className="main-container">
                             <div className="main-container__content">
                                 <main>{this.props.children}</main>
@@ -51,7 +56,7 @@ class Layout extends Component {
                             <Footer />
                         </div>
                         <EmailModal />
-                        <NavModal handleModal={this.handleModal} modal={this.state.modal} />
+                        <NavModal handleModal={this.handleNavModal} modal={this.state.navModal} />
                     </>
                 )}
             />

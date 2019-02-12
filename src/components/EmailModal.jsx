@@ -2,13 +2,13 @@ import React from "react";
 
 export default () => {
     return (
-        <div className="fixed pin-t pin-r pin-l pt-20 px-6 hidden md:block">
+        <div className="fixed pin-t pin-r pin-l pt-20 px-6 hidden md:block" style={{ zIndex: "20" }}>
             <div className="flex justify-center">
                 <div className="container flex justify-end">
                     <div className="card shadow-lg" style={{ maxWidth: "40rem" }}>
                         <div className="card-body">
                             <form name="signup" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-                                <input type="hidden" name="signup" value="contact" />
+                                <input type="hidden" name="form-name" value="signup" />
                                 <div class="mb-4">
                                     <label class="block text-grey-darker text-sm font-bold mb-2">Nimi</label>
                                     <input
@@ -26,8 +26,10 @@ export default () => {
                                     />
                                 </div>
                                 <div>
-                                    <button className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">Tallenna</button>
-                                    <button className="underline text-grey-dark py-2 px-4  rounded">Peru</button>
+                                    <button className="bg-grey-darkest hover:bg-black text-white font-bold py-2 px-4 rounded">
+                                        Tallenna
+                                    </button>
+                                    <button className="underline text-grey-dark py-2 px-4 ">Peru</button>
                                 </div>
                             </form>
                         </div>
