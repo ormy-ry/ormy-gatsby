@@ -10,7 +10,7 @@ export default props => {
                         <div className="arrow-up absolute pin-r" style={{ right: "6rem", top: "-0.7rem" }} />
                         <div className="card shadow-lg" style={{ maxWidth: "40rem" }}>
                             <div className="card-body pointer-events-auto">
-                                <EmailForm handleCancel={props.handleModal} />
+                                <EmailForm dark={false} handleCancel={props.handleModal} />
                             </div>
                         </div>
                     </div>

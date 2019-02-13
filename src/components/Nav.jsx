@@ -30,7 +30,7 @@ export default props => (
                     <div className="h-6 mx-1 nav-icon" style={{ opacity: "0.7" }}>
                         <Info />
                     </div>
-                    info
+                    info & jäsenyys
                 </span>
             </Link>
             <button className="nav-link h-full inline-block float-right" onClick={() => props.handleEmailModal()}>
