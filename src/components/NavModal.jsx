@@ -48,7 +48,7 @@ export default props => (
                             onClick={() => navigate("/info")}
                         >
                             <Info />
-                            <span className="uppercase font-semibold pt-2">info</span>
+                            <span className="uppercase font-semibold pt-2">info & jäsenyys</span>
                         </div>
                     </div>
                 </div>
@@ -65,8 +65,8 @@ export default props => (
                     </div>
                 ) : null}
                 {props.emailMobile ? (
-                    <div className="m-16">
-                        <EmailForm handleCancel={props.handleEmailMobile} />
+                    <div className="m-16 mx-auto w-full" style={{ maxWidth: "20rem" }}>
+                        <EmailForm dark={true} handleCancel={props.handleEmailMobile} />
                     </div>
                 ) : null}
             </div>
