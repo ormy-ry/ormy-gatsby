@@ -21,13 +21,13 @@ export default () => (
             }
         `}
         render={data => {
-            const plannedEvents = data.Events.edges.filter(edge => {
+            const plannedEvents = data.Events ? data.Events.edges.filter(edge => {
                 return edge.node.data.body.text === "" || edge.node.data.body.text === null;
-            });
+            }) : [];
 
-            const futureEvents = data.Events.edges.filter(edge => {
+            const futureEvents = data.Events ? data.Events.edges.filter(edge => {
                 return edge.node.data.body.text !== "" && edge.node.data.body.text !== null;
-            });
+            }) : [];
 
             return (
                 <div className="p-0 grid-col">
