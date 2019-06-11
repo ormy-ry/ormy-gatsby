@@ -6,15 +6,15 @@ import EventCard from "../components/EventCard";
 import EventTable from "../components/EventTable";
 
 export default ({ data }) => {
-    const plannedEvents = data.New.edges.filter(edge => {
+    const plannedEvents = data.New ? data.New.edges.filter(edge => {
         return edge.node.data.body.text === "" || edge.node.data.body.text === null;
-    });
+    }) : [];
 
-    const newEvents = data.New.edges.filter(edge => {
+    const newEvents = data.New ? data.New.edges.filter(edge => {
         return edge.node.data.body.text !== "" && edge.node.data.body.text !== null;
-    });
+    }) : [];
 
-    const newEventNodes = newEvents.map(edge => (
+    const newEventNodes = newEvents ? newEvents.map(edge => (
         <EventCard
             key={edge.node.fields.slug}
             title={edge.node.data.title.text}
@@ -22,7 +22,7 @@ export default ({ data }) => {
             start={edge.node.fields.datetime}
             location={edge.node.data.location}
         />
-    ));
+    )) : null;
 
     return (
         <Layout>
