@@ -30,7 +30,7 @@ export default ({ data }) => {
                 <div className="grid-col">
                     {newEventNodes}
                     <div>
-                        {plannedEvents ? (
+                        {plannedEvents.length ? (
                             <div className="card">
                                 <div className="card-title">Suunnitellut tapahtumat</div>
                                 <div className="card-body">
